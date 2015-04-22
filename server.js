@@ -28,7 +28,7 @@ plex.on('error', function(e){
 
 server.on('upgrade', function(req, socket, head){
   wss.handleUpgrade(req, socket, head, function(ws){
-    var stream = wsStream(ws, {autoDestroy: true})
+    var stream = wsStream(ws, {autoDestroy: false})
     stream.pipe(plex).pipe(stream) 
     stream.on('error', function(e){console.log(e)})
   })

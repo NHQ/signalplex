@@ -9,6 +9,7 @@ pipe.on('data', function(data){
 })
 
 setInterval(function(){
-  hub.broadcast('pow!', 'a string is the thing')
+  pipe.write('s string is the thing')
+  //hub.broadcast('pow!', 'a string is the thing')
 }, 1000)
 

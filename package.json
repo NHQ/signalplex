@@ -1,9 +1,10 @@
 {
   "name": "sockethub",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A websocket signal server and client module.  The API is same as [signalhub](https://www.npmjs.com/package/signalhub).",
   "main": "index.js",
   "dependencies": {
+    "answerver": "^0.5.0",
     "dataplex": "^3.0.2",
     "ecstatic": "^0.7.4",
     "through2": "^0.6.5",
@@ -14,8 +15,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build" : "browserify browser.js -o public/bundle.js"
+    "build": "browserify browser.js -o public/bundle.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "johnny",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NHQ/sockethub"
+  },
+  "keywords": [
+    "socket",
+    "signal",
+    "server",
+    "socket",
+    "server",
+    "webrtc"
+  ],
+  "bugs": {
+    "url": "https://github.com/NHQ/sockethub/issues"
+  },
+  "homepage": "https://github.com/NHQ/sockethub"
 }

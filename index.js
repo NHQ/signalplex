@@ -21,11 +21,9 @@ module.exports = function(url, app){
   }
 
   hub.broadcast = function(channel, msg){
-    if(!channels[channel]){
-      channels[channel] = hub.subscribe(channel)
-    }
+    var pipe = plex.remote('/v1/broadcast/' + app + '/' + channel)
     msg = typeof msg === 'String' ? msg : JSON.stringify(msg)
-    channels[channel].write(msg)
+    pipe.end(msg)
   }
 
   return hub 

@@ -5,11 +5,13 @@ var hub = sockethub('ws://' + window.location.host, 'meow')
 var pipe = hub.subscribe('pow!')
 
 pipe.on('data', function(data){
-  console.log(data)
+  console.log(data.toString())
 })
 
 setInterval(function(){
-  pipe.write('s string is the thing')
-  //hub.broadcast('pow!', 'a string is the thing')
+  var r = Math.random() * 100
+  console.log(r)
+  hub.broadcast('pow!', 'a string is the thing ' + r)
+
 }, 1000)
 

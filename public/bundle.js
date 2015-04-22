@@ -4775,12 +4775,14 @@ var hub = sockethub('ws://' + window.location.host, 'meow')
 var pipe = hub.subscribe('pow!')
 
 pipe.on('data', function(data){
-  console.log(data)
+  console.log(data.toString())
 })
 
 setInterval(function(){
-  pipe.write('s string is the thing')
-  //hub.broadcast('pow!', 'a string is the thing')
+  var r = Math.random() * 100
+  console.log(r)
+  hub.broadcast('pow!', 'a string is the thing ' + r)
+
 }, 1000)
 
 
@@ -4808,11 +4810,9 @@ module.exports = function(url, app){
   }
 
   hub.broadcast = function(channel, msg){
-    if(!channels[channel]){
-      channels[channel] = hub.subscribe(channel)
-    }
+    var pipe = plex.remote('/v1/broadcast/' + app + '/' + channel)
     msg = typeof msg === 'String' ? msg : JSON.stringify(msg)
-    channels[channel].write(msg)
+    pipe.end(msg)
   }
 
   return hub 

@@ -5,7 +5,7 @@ A websocket signal server and client module.  The API is same as [signalhub](htt
 The main entry for this module is the client code.  ```server.js``` is the compatible server. you can use it like so:
 
 ```
-npm install sockethub
+npm install signalplex 
 ```
 
 ```js

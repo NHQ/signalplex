@@ -8,6 +8,9 @@ pipe.on('data', function(data){
   console.log(data.toString())
 })
 
+setTimeout(function(){
+}, 3000)
+
 setInterval(function(){
   var r = Math.random() * 100
   console.log(r)

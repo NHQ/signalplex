@@ -7,11 +7,37 @@ module.exports = function(url, app){
 
   var channels = {}
 
-  var ws = websocket(url, null, {autoDestroy: false})
-  
+  var ws, plex
+
+  var retry = Date.now()
+
+  var delta = 1000 
+
   var plex = dataplex()
 
-  ws.pipe(plex).pipe(ws)
+  connect(false)
+
+  function connect(un){
+  
+    if(un) plex.unpipe(ws)
+
+    ws = websocket(url, null, {autoDestroy: false})
+ 
+    ws.pipe(plex).pipe(ws)
+
+    ws.on('close', function(){
+      /*    
+      var now = Date.now()
+      if(!(now - retry < delta)){
+        setTimeout(function(){
+          connect(true)
+        }, delta - (now - retry) )
+      }
+      else 
+      */
+      connect(true)
+    })
+  }
 
   hub.subscribe = function(channel){
     if(channels[channel]) return channels[channel]

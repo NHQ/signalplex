@@ -11,7 +11,9 @@ var server = require('http').createServer(function(req, res){
   www(req, res)
 })
 
-server.listen(11010)
+server.listen(11010, function(){
+  console.log('server running at http://localhost:11010')
+})
 
 var plex = dataplex()
 

@@ -1,4 +1,4 @@
-# sockethub
+# signalplex
 
 A websocket signal server and client module.  The API is same as [signalhub](https://www.npmjs.com/package/signalhub).
 
@@ -9,15 +9,15 @@ npm install sockethub
 ```
 
 ```js
-require('sockethub/server')
+require('signalplex/server')
 ```
 
 Run that file with node.  It will listen on port 11010 or higher.
 
 In your browser / client code, do:
 
-'''js
-var sockethub = require('sockethub')
+```js
+var sockethub = require('signalplex')
 
 //  two parans, the websocket URI and a name for your app/group
 

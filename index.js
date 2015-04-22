@@ -25,6 +25,10 @@ module.exports = function(url, app){
  
     ws.pipe(plex).pipe(ws)
 
+    ws.on('error', function(e){
+      console.log(e)
+    })
+
     ws.on('close', function(){
       /*    
       var now = Date.now()

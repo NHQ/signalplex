@@ -21,7 +21,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NHQ/sockethub"
+    "url": "https://github.com/NHQ/signalplex"
   },
   "keywords": [
     "socket",

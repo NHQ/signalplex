@@ -51,9 +51,11 @@ module.exports = function(url, app){
   }
 
   hub.broadcast = function(channel, msg){
-    var pipe = plex.remote('/v1/broadcast/' + app + '/' + channel)
-    msg = typeof msg === 'String' ? msg : JSON.stringify(msg)
-    pipe.end(msg)
+    var pipe = plex.open('/v1/broadcast/' + app + '/' + channel)
+    pipe.on('error', function(e){
+      console.log(e)
+    })
+    pipe.write(JSON.stringify(msg))
   }
 
   return hub 

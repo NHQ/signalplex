@@ -1,12 +1,16 @@
 {
   "name": "signalplex",
   "version": "1.6.0",
+  "bin": {
+    "signalplex": "./bin.js"
+  },
   "description": "A websocket signal server and client module.  The API is same as [signalhub](https://www.npmjs.com/package/signalhub).",
   "main": "index.js",
   "dependencies": {
     "answerver": "^0.5.0",
     "dataplex": "^3.0.2",
     "ecstatic": "^0.7.4",
+    "minimist": "^1.1.1",
     "through2": "^0.6.5",
     "websocket-stream": "^1.5.0",
     "ws": "^0.7.1"

@@ -55,7 +55,7 @@ module.exports = function(url, app){
     pipe.on('error', function(e){
       console.log(e)
     })
-    pipe.write(JSON.stringify(msg))
+    pipe.end(JSON.stringify(msg))
   }
 
   return hub 
